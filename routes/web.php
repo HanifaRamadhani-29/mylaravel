@@ -1,11 +1,28 @@
 <?php
 
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 //default routing
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+
+
+Route::get('/listmahasiswa', function(){
+    $arrmhs=[
+        'Hanifa',
+        'Hanifa',
+        'Nabil',
+        'Nadya'
+    ];
+    return view('akademik.mahasiswa', ['mhs' => $arrmhs]);
+});
+
+
+Route::view('/hello', 'hello', ['nama'=>'Nabil Achmad Khoir']);
 
 
 Route::post('submit', function () {
@@ -35,7 +52,7 @@ Route::get('/profile', function () {
 
 Route::get('mahasiswa/ti/latifa', function () {
     echo "<p style='font-size:40;color:orange'>Jurusan Teknologi Informasi";
-    echo "<h1> Selamat Datang Latifa...</h1>";
+    echo "<h1> Selamat Datang Nabil...</h1>";
     echo "<hr>";
     echo "<p> lorem .........................</p>";
 });
