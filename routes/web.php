@@ -110,3 +110,89 @@ Route::prefix('login')->group(function () {
 Route::fallback(function () {
     return "<h2> Mohon maaf, halaman yang anda cari <b>tidak ditemukan</b>";
 });
+
+Route::get('listmahasiswa', function() {
+    $mhs1 = "Hani";
+    $mhs2 = "Nabil";
+    $mhs3 = "Nadya";
+
+    return view("akademik.mahasiswalist", compact("mhs1","mhs2","mhs3"));
+});
+
+Route::get('nilaimahasiswa', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = "20";
+
+    return view("akademik.nilaimahasiswa", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswaswitch', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = "20";
+
+    return view("akademik.nilaimahasiswaswitch", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswaforloop', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = "20";
+
+    return view("akademik.nilaimahasiswaforloop", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswawhileloop', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = "7";
+
+    return view("akademik.nilaimahasiswawhileloop", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswaforeach', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = [20,100];
+
+    return view("akademik.nilaimahasiswaforeach", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswaforelse', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = [20,100];
+
+    return view("akademik.nilaimahasiswaforelse", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswacontinue', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = [20,100];
+
+    return view("akademik.nilaimahasiswacontinue", compact("nama","nim","total_nilai"));
+});
+
+Route::get('nilaimahasiswabreak', function() {
+    $nama = "Hanifa Ramadhani";
+    $nim = "2311082020";
+    $total_nilai = [80,100,10];
+
+    return view("akademik.nilaimahasiswabreak", compact("nama","nim","total_nilai"));
+});
+
+Route::get('/mahasiswati', function () {
+    $arrMhs = ['nadya', 'atika', 'hani', 'tiara'];
+    return view('akademik.mahasiswapnp', ['Mhs'=>$arrMhs]);
+ });
+ 
+ Route::get('/dosenti', function () {
+    $arrDsn = ['dosen web framework', 'dosen microservices', 'dosen mobile programming', 'dosen web programming', 'dosen multimedia', 'dosen IOT'];
+    return view('akademik.dosenpnp', ['Dsn'=>$arrDsn]);
+ });
+ 
+ Route::get('/prodi', function () {
+    return view('akademik.prodipnp');
+ });
