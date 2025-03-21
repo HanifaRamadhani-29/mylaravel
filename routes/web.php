@@ -3,6 +3,9 @@
 
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\TeknisiController;
+
 //default routing
 Route::get('/', function () {
     return view('welcome');
@@ -186,13 +189,38 @@ Route::get('nilaimahasiswabreak', function() {
 Route::get('/mahasiswati', function () {
     $arrMhs = ['nadya', 'atika', 'hani', 'tiara'];
     return view('akademik.mahasiswapnp', ['Mhs'=>$arrMhs]);
- });
+ })->name('mahasiswati');
  
  Route::get('/dosenti', function () {
     $arrDsn = ['dosen web framework', 'dosen microservices', 'dosen mobile programming', 'dosen web programming', 'dosen multimedia', 'dosen IOT'];
     return view('akademik.dosenpnp', ['Dsn'=>$arrDsn]);
- });
+ })->name('dosenti');
  
- Route::get('/prodi', function () {
-    return view('akademik.prodipnp');
- });
+ Route::get('/pnp/{jurusan}/{prodi}', function ($jurusan,$prodi) {
+    $data=[$jurusan,$prodi];
+    return view('akademik.prodipnp')->with('data',$data);
+ })->name('prodi');
+
+
+ Route::get('dosen', [DosenController::class,'index']);
+
+ Route::get('teknisi', [TeknisiController::class,'index']);
+ Route::get('teknisi/create', [TeknisiController::class,'create']);
+ Route::post('teknisi', [TeknisiController::class,'store']);
+ Route::get('teknisi/{id}', [TeknisiController::class,'show']);
+ Route::get('teknisi/{id}/edit', [TeknisiController::class,'edit']);
+ Route::put('teknisi/{id}', [TeknisiController::class,'update']);
+ Route::delete('teknisi/{id}', [TeknisiController::class,'destroy']);
+
+ Route::get('insert-sql', [MahasiswaController::class,'insertSql']);
+ Route::get('insert-prepared', [MahasiswaController::class,'insertPrepared']);
+ Route::get('insert-binding', [MahasiswaController::class,'insertBinding']);
+ Route::get('update', [MahasiswaController::class,'update']);
+ Route::get('delete', [MahasiswaController::class,'delete']);
+ Route::get('select', [MahasiswaController::class,'select']);
+ Route::get('select-tampil', [MahasiswaController::class,'selectTampil']);
+ Route::get('select-view', [MahasiswaController::class,'selectView']);
+ Route::get('select-where', [MahasiswaController::class,'selectWhere']);
+ Route::get('statement', [MahasiswaController::class,'statement']);
+
+

@@ -5,7 +5,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>@yield('title')</title>
+   <title>@yield('title',"websitepnp")</title>
    <style>
        main>.container {
            padding: 60px 15px 0;

@@ -1,7 +1,5 @@
 @extends('layout.main')
 @section('title', 'Daftar Dosen')
-    Daftar Dosen
-@endsection
 @section('content')
     <h1>Dafar mahasiswa jurusan TI</h1>
     <ol>

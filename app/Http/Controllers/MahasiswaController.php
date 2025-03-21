@@ -12,6 +12,18 @@ class MahasiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function insertSql(){
+        $query = DB::insert('insert into mahasiswas (nama, nobp, email, nohp, jurusan, prodi, tgllahir, created_at, updated_at) values("Hanifa Ramadhani","2311082020",
+        "hanifa@gmail.com","082112345678","Teknologi Informasi","TRPL","2004-10-29", now(),now())');
+        return "berhasil insert data mahasiswa";
+    }
+
+    public function insertPrepared(){
+        $query = DB::insert('insert into mahasiswas (nama, nobp, email, nohp, jurusan, prodi, tgllahir, created_at, updated_at) values (?,?,?,?,?,?,?,?,?)',["Nadya Hermalia Putri","2311082034",
+        "nadya@gmail.com","082112345670","Teknologi Informasi","TRPL","2004-10-18", now(),now()]);
+        return "berhasil insert data mahasiswa";
+    }
+
     public function index()
     {
         //
